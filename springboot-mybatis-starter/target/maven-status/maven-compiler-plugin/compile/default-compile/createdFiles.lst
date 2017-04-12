@@ -1,6 +1,0 @@
-com\hanzo\mybatis\starter\controller\UserController.class
-com\hanzo\mybatis\starter\service\UserService.class
-com\hanzo\mybatis\starter\DemoApplication.class
-com\hanzo\mybatis\starter\mapper\UserDao.class
-com\hanzo\mybatis\starter\model\UserEntity.class
-com\hanzo\mybatis\starter\service\impl\UserServiceImpl.class
