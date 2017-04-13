@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace 对应需要注册bean的 mapper 接口 -->
+<mapper namespace="com.hanzo.springboot.adminlte.velocity.mapper.UserMapper">
+
+    <!-- type 映射实体类和数据库列名 -->
+    <resultMap id="resultMapForUser" type="com.hanzo.springboot.adminlte.velocity.model.UserEntity">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+    <sql id="select_column">
+        id,
+        name,
+        age
+    </sql>
+
+    <select id="getUserByAge" resultMap="resultMapForUser" parameterType="int">
+        select
+        <include refid="select_column"/>
+        from users
+        where age = #{age}
+    </select>
+
+</mapper>
