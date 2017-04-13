@@ -1,24 +1,32 @@
 package com.hanzo.mybatis.starter.controller;
 
+import com.hanzo.mybatis.starter.mapper.UserMapper;
 import com.hanzo.mybatis.starter.model.UserEntity;
-import com.hanzo.mybatis.starter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by P10103052 on 2017/4/12.
+ * Created by P10103052 on 2017/4/13.
  */
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserMapper userMapper;
 
-    @RequestMapping(value = "/getUserByAge", method = RequestMethod.GET)
-    public UserEntity getuserbyage(@RequestParam(value = "age", required = true) int age) {
-        return userService.getUserByAge(age);
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello() {
+        return "hello";
+    }
+
+
+    @GetMapping("/getuserbyage")
+    @ResponseBody
+    public UserEntity getuserbyage(@RequestParam("age") int age) {
+        return userMapper.getUserByAge(age);
     }
 }
